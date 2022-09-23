@@ -10,9 +10,6 @@ const subtractButton = document.querySelector('#subtractButton');
 const multiplyButton = document.querySelector('#multiplyButton');
 const divideButton = document.querySelector('#divideButton');
 
-/*
-const signButton = document.querySelectorAll('.sign');
-*/
 const equalsButton = document.querySelector('#equalsButton');
 
 const clearButton = document.querySelector('#clearButton');
@@ -35,6 +32,7 @@ const multiply = function(a, b) {
 const divide = function(a, b) {
     if (b == 0) {
         alert("you can't just do that!");
+        return a;
     }
     return a / b;
 }
@@ -76,14 +74,6 @@ clearButton.addEventListener('click', () => {
     windowTwo.textContent = '';
     windowThree.textContent = ' ';
 });
-
-// functions that calculate when sign is clicked
-/* signButton.forEach(button => {
-    button.addEventListener('click', () => {
-        a = displayWindow.textContent;
-    })
-});
-*/
 
 addButton.addEventListener('click', () => {
     if (windowTwo.textContent === '') {
