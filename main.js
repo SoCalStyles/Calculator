@@ -15,12 +15,22 @@ const clearButton = document.querySelector('#clearButton');
 // displayValue += button
 
 // function that populates display when you click the number buttons
-
 numberButton.forEach(button => {
     button.addEventListener('click', function() {
         displayWindow.textContent += button.textContent;
     });
 });
+
+// function that clears display when clear button is clicked
+clearButton.addEventListener('click', () => {
+    displayWindow.textContent = ' ';
+});
+
+// functions that calculate when sign is clicked
+
+
+// function that returns answer when equals is clicked
+
 
 const addition = function(a, b) {
     return a * b;
