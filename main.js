@@ -1,20 +1,7 @@
 const displayWindow = document.querySelector('#displayWindow');
-let displayValue = document.createElement('p');
-displayValue = ' ';
-displayWindow.appendChild(displayValue);
+displayWindow.textContent = ' ';
 
-
-const oneButton = document.querySelector('#one');
-const twoButton = document.querySelector('#two');
-const threeButton = document.querySelector('#three');
-const fourButton = document.querySelector('#four');
-const fiveButton = document.querySelector('#five');
-const sixButton = document.querySelector('#six');
-const sevenButton = document.querySelector('#seven');
-const eightButton = document.querySelector('#eight');
-const nineButton = document.querySelector('#nine');
-const zeroButton = document.querySelector('#zero');
-const decimalButton = document.querySelector('#decimal');
+const numberButton = document.querySelectorAll('.numberButton');
 
 const addButton = document.querySelector('#addButton');
 const subtractButton = document.querySelector('#subtractButton');
@@ -28,37 +15,13 @@ const clearButton = document.querySelector('#clearButton');
 // displayValue += button
 
 // functions that populate display when you click the number buttons
-oneButton.addEventListener('click', () => {
-    displayValue += 1;
-});
-twoButton.addEventListener('click', () => {
-    displayValue += 2;
-});
-threeButton.addEventListener('click', () => {
-    displayValue += 3;
-});
-fourButton.addEventListener('click', () => {
-    displayValue += 4;
-});
-fiveButton.addEventListener('click', () => {
-    displayValue += 5;
-});
-sixButton.addEventListener('click', () => {
-    displayValue += 6;
-});
-sevenButton.addEventListener('click', () => {
-    displayValue += 7;
-});
-eightButton.addEventListener('click', () => {
-    displayValue += 8;
-});
-nineButton.addEventListener('click', () => {
-    displayValue += 9;
-});
-zeroButton.addEventListener('click', () => {
-    displayValue += 0;
-});
+// event listeners not currently working
 
+numberButton.forEach(button, function() {
+    button.addEventListener('click', function() {
+        displayWindow.textContent += 1;
+    });
+});
 
 const addition = function(a, b) {
     return a * b;
@@ -77,6 +40,7 @@ const divide = function(a, b) {
 }
 
 const operate = function() {
+    a = +(displayWindow.textContent);
     // takes an operator and 2 numbers and then calls one of the 
     // above functions on the numbers
 }
