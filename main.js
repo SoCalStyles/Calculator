@@ -15,6 +15,7 @@ const equalsButton = document.querySelector('#equalsButton');
 const clearButton = document.querySelector('#clearButton');
 
 let operator = '';
+let mode = '';
 
 // math functions
 const addition = function(a, b) {
@@ -121,10 +122,14 @@ divideButton.addEventListener('click', () => {
 
 // function that returns answer when equals is clicked
 equalsButton.addEventListener('click', () => {
+    if (windowTwo.textContent == '' || windowThree.textContent == '') {
+        return;
+    }
     let answer = operate(windowTwo.textContent, windowOne.textContent, windowThree.textContent);
     windowOne.textContent = answer;
     windowTwo.textContent = '';
     windowThree.textContent = '';
+    mode = 'answered';
 });
 
 
