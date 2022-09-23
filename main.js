@@ -14,12 +14,11 @@ const clearButton = document.querySelector('#clearButton');
 
 // displayValue += button
 
-// functions that populate display when you click the number buttons
-// event listeners not currently working
+// function that populates display when you click the number buttons
 
-numberButton.forEach(button, function() {
+numberButton.forEach(button => {
     button.addEventListener('click', function() {
-        displayWindow.textContent += 1;
+        displayWindow.textContent += button.textContent;
     });
 });
 
