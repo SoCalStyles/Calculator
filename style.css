@@ -1,0 +1,24 @@
+h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#calcContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#displayWindow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: pink;
+}
+
+#keypad {
+    display: flex;
+    flex-direction: column;
+}
