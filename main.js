@@ -50,6 +50,7 @@ const divide = function(a, b) {
 
 const operate = function() {
     a = +(displayWindow.textContent);
+    
     // takes an operator and 2 numbers and then calls one of the 
     // above functions on the numbers
 }
