@@ -1,7 +1,13 @@
-h1 {
+body {
+    background-color: rgb(216, 216, 216);
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+h1 {
+    
 }
 
 #calcContainer {
@@ -9,16 +15,84 @@ h1 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: orange;
+    border: black solid 5px;
+    border-radius: 10px;
+    width: 350px;
+    height: 525px;
+    gap: 20px;
 }
 
 #displayWindow {
+    font-size: 30px;
     display: flex;
+    gap: 8px;
     align-items: center;
-    justify-content: center;
-    background-color: pink;
+    justify-content: left;
+    background-color: rgb(224, 224, 224);
+    border: black 3px solid;
+    height: 80px;
+    width: 300px;
+    border-radius: 5px;
 }
 
 #keypad {
     display: flex;
     flex-direction: column;
+    gap: 8px;
+}
+
+.numberButton {
+    background-color: rgb(46, 45, 45);
+    color: white;
+    border: none;
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.sign {
+    background-color: rgb(122, 122, 122);
+    color: white;
+    border: none;
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+#zero {
+    width: 152px;
+    border-radius: 20px;
+}
+
+#firstRow, #secondRow, #thirdRow, #fourthRow {
+    display: flex;
+    gap: 8px;
+}
+
+#fifthRow {
+    display: flex;
+    justify-content: space-between;
+}
+
+#addButton, #subtractButton, #multiplyButton, #divideButton, #equalsButton {
+    background-color: rgb(33, 91, 156);
+    color: white;
+}
+
+.numberButton:hover {
+    background-color: rgb(46, 124, 214);
+}
+
+.sign:hover {
+    background-color: rgb(46, 124, 214);
+}
+
+#addButton:hover, #subtractButton:hover, #multiplyButton:hover, 
+#divideButton:hover, #equalsButton:hover {
+    background-color: rgb(46, 124, 214);
 }
