@@ -32,8 +32,10 @@ h1 {
     background-color: rgb(224, 224, 224);
     border: black 3px solid;
     height: 80px;
-    width: 300px;
+    width: 280px;
     border-radius: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 #keypad {
