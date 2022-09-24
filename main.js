@@ -3,18 +3,16 @@ const windowOne = document.querySelector('#window1');
 const windowTwo = document.querySelector('#window2');
 const windowThree = document.querySelector('#window3');
 
-const positiveNegative = document.querySelector('.positiveNegative');
+const positiveNegative = document.querySelector('#positiveNegative');
 const percentageButton = document.querySelector('#percentage');
 const numberButton = document.querySelectorAll('.numberButton');
-
 
 const addButton = document.querySelector('#addButton');
 const subtractButton = document.querySelector('#subtractButton');
 const multiplyButton = document.querySelector('#multiplyButton');
 const divideButton = document.querySelector('#divideButton');
 
-
-// const signButton = document.querySelectorAll('.sign');
+// const operatorButton = document.querySelectorAll('.operator');
 
 const equalsButton = document.querySelector('#equalsButton');
 const clearButton = document.querySelector('#clearButton');
@@ -23,19 +21,13 @@ let operator = '';
 let mode = '';
 
 // math functions
-const addition = function(a, b) {
-    return +(a) + +(b);
-}
+const addition = (a, b) => {return +(a) + +(b)}
 
-const subtraction = function(a, b) {
-    return a - b;
-}
+const subtraction = (a, b) => {return a - b};
 
-const multiply = function(a, b) {
-    return a * b;
-}
+const multiply = (a, b) => {return a * b};
 
-const divide = function(a, b) {
+const divide = (a, b) => {
     if (b == 0) {
         alert("you can't just do that!");
         return a;
@@ -67,9 +59,13 @@ const operate = function(operator, number1, number2) {
 numberButton.forEach(button => {
     button.addEventListener('click', function() {
         if (windowTwo.textContent === '') {
-            windowOne.textContent += button.textContent;
+            if (windowOne.textContent.length < 8) {
+                windowOne.textContent += button.textContent;
+            };
         } else {
-            windowThree.textContent += button.textContent;
+            if (windowThree.textContent.length < 8) {
+                windowThree.textContent += button.textContent;
+            };
         };
     });
 });
@@ -127,7 +123,7 @@ divideButton.addEventListener('click', () => {
 
 
 /*
-signButton.forEach(sign => {
+operatorButton.forEach(sign => {
     sign.addEventListener('click', () => {
         if (windowTwo.textContent === '') {
             windowTwo.textContent = sign.textContent;
@@ -143,9 +139,14 @@ signButton.forEach(sign => {
 
 /*
 positiveNegative.addEventListener('click', () => {
-    alert('wowee');
-    windowOne.textContent = '-' + windowOne.textContent;
+    if (windowTwo.textContent === '') {
+        windowOne.textContent = `-${windowOne.textContent}`
+    } else {
+        windowThree.textContent = `-${windowThree.textContent}`
+    }
 });
+
+should take textContent and turn to array, then add +/- to front of array
 */
 
 /*
@@ -160,7 +161,8 @@ percentageButton.addEventListener('click', () => {
 // function that returns answer when equals is clicked
 equalsButton.addEventListener('click', () => {
     let answer = operate(windowTwo.textContent, windowOne.textContent, windowThree.textContent);
-    windowOne.textContent = answer;
+    const roundedAnswer = Math.round(answer * 10000)/10000;
+    windowOne.textContent = roundedAnswer;
     windowTwo.textContent = '';
     windowThree.textContent = '';
     mode = 'answered';
