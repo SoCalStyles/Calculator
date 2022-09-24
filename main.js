@@ -12,7 +12,7 @@ const subtractButton = document.querySelector('#subtractButton');
 const multiplyButton = document.querySelector('#multiplyButton');
 const divideButton = document.querySelector('#divideButton');
 
-// const operatorButton = document.querySelectorAll('.operator');
+//const operatorButton = document.querySelectorAll('.operator');
 
 const equalsButton = document.querySelector('#equalsButton');
 const clearButton = document.querySelector('#clearButton');
@@ -74,7 +74,7 @@ numberButton.forEach(button => {
 clearButton.addEventListener('click', () => {
     windowOne.textContent = '';
     windowTwo.textContent = '';
-    windowThree.textContent = ' ';
+    windowThree.textContent = '';
 });
 
 addButton.addEventListener('click', () => {
@@ -121,10 +121,9 @@ divideButton.addEventListener('click', () => {
         }
 });
 
-
 /*
 operatorButton.forEach(sign => {
-    sign.addEventListener('click', () => {
+    sign.addEventListener('click', function() {
         if (windowTwo.textContent === '') {
             windowTwo.textContent = sign.textContent;
             } else {
@@ -137,15 +136,32 @@ operatorButton.forEach(sign => {
 });
 */
 
-/*
+// still not working
 positiveNegative.addEventListener('click', () => {
     if (windowTwo.textContent === '') {
-        windowOne.textContent = `-${windowOne.textContent}`
+        let numArrayOne = windowOne.textContent.split('');
+        let finderOne = numArrayOne.find(char => {
+            if (char == '-') {
+                windowOne.textContent = numArrayOne.shift().toString();
+            } else {
+                windowOne.textContent = `-${windowOne.textContent}`;
+            }
+        });
+        windowOne.textContent = finderOne.toString('');
     } else {
-        windowThree.textContent = `-${windowThree.textContent}`
+        let numArrayThree = windowThree.textContent.split('');
+        let finderThree = numArrayThree.find(char => {
+            if (char == '-') {
+                return false;
+            } else {
+                windowOne.textContent = `-${windowOne.textContent}`;
+            }
+            windowOne.textContent = finderThree.toString('');
+        });
     }
 });
 
+/*
 should take textContent and turn to array, then add +/- to front of array
 */
 
