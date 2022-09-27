@@ -66,11 +66,11 @@ numberButton.forEach(button => {
             };
         };
         if (windowTwo.textContent === '') {
-            if (windowOne.textContent.length < 8) {
+            if (windowOne.textContent.length < 15) {
                 windowOne.textContent += button.textContent;
             };
         } else {
-            if (windowThree.textContent.length < 8) {
+            if (windowThree.textContent.length < 15) {
                 windowThree.textContent += button.textContent;
             };
         };
@@ -105,6 +105,9 @@ clearButton.addEventListener('click', () => {
 
 // functions for each operator
 addButton.addEventListener('click', () => {
+    if (mode === 'answered') {
+        mode = '';
+    }
     if (windowTwo.textContent === '') {
     windowTwo.textContent = '+';
     } else if (windowThree.textContent === '') {
@@ -118,6 +121,9 @@ addButton.addEventListener('click', () => {
 });
 
 subtractButton.addEventListener('click', () => {
+    if (mode === 'answered') {
+        mode = '';
+    }
     if (windowTwo.textContent === '') {
         windowTwo.textContent = '-';
         } else if (windowThree.textContent === '') {
@@ -131,6 +137,9 @@ subtractButton.addEventListener('click', () => {
 });
 
 multiplyButton.addEventListener('click', () => {
+    if (mode === 'answered') {
+        mode = '';
+    }
     if (windowTwo.textContent === '') {
         windowTwo.textContent = '*';
         } else if (windowThree.textContent === '') {
@@ -144,6 +153,9 @@ multiplyButton.addEventListener('click', () => {
 });
 
 divideButton.addEventListener('click', () => {
+    if (mode === 'answered') {
+        mode = '';
+    }
     if (windowTwo.textContent === '') {
         windowTwo.textContent = '/';
     } else if (windowThree.textContent === '') {
@@ -235,8 +247,7 @@ backspaceButton.addEventListener('click', () => {
     };
 });
 
-// replace multiple sign button functions with just the one
-// fix numbers that are really long not fitting in display window
+// replace multiple operator button functions with just the one
 // add keyboard support
 
 
