@@ -16,6 +16,7 @@ const divideButton = document.querySelector('#divideButton');
 
 const equalsButton = document.querySelector('#equalsButton');
 const clearButton = document.querySelector('#clearButton');
+const backspaceButton = document.querySelector('#backspace');
 
 let operator = '';
 let mode = '';
@@ -54,7 +55,6 @@ const operate = function(operator, number1, number2) {
     };
 };
 
-
 // function that populates display when you click the number buttons
 numberButton.forEach(button => {
     button.addEventListener('click', function() {
@@ -83,10 +83,13 @@ clearButton.addEventListener('click', () => {
     windowThree.textContent = '';
 });
 
+// functions for each operator
 addButton.addEventListener('click', () => {
     if (windowTwo.textContent === '') {
     windowTwo.textContent = '+';
-    } else {
+    } else if (windowThree.textContent === '') {
+        windowTwo.textContent = '+';
+    }  else {
     let answer = operate(windowTwo.textContent, windowOne.textContent, windowThree.textContent);
     windowOne.textContent = answer;
     windowTwo.textContent = '+';
@@ -97,6 +100,8 @@ addButton.addEventListener('click', () => {
 subtractButton.addEventListener('click', () => {
     if (windowTwo.textContent === '') {
         windowTwo.textContent = '-';
+        } else if (windowThree.textContent === '') {
+            windowTwo.textContent = '-';
         } else {
         let answer = operate(windowTwo.textContent, windowOne.textContent, windowThree.textContent);
         windowOne.textContent = answer;
@@ -108,6 +113,8 @@ subtractButton.addEventListener('click', () => {
 multiplyButton.addEventListener('click', () => {
     if (windowTwo.textContent === '') {
         windowTwo.textContent = '*';
+        } else if (windowThree.textContent === '') {
+            windowTwo.textContent = '*';
         } else {
         let answer = operate(windowTwo.textContent, windowOne.textContent, windowThree.textContent);
         windowOne.textContent = answer;
@@ -119,7 +126,9 @@ multiplyButton.addEventListener('click', () => {
 divideButton.addEventListener('click', () => {
     if (windowTwo.textContent === '') {
         windowTwo.textContent = '/';
-        } else {
+    } else if (windowThree.textContent === '') {
+        windowTwo.textContent = '/';
+    } else {
         let answer = operate(windowTwo.textContent, windowOne.textContent, windowThree.textContent);
         windowOne.textContent = answer;
         windowTwo.textContent = '/';
@@ -132,15 +141,18 @@ operatorButton.forEach(sign => {
     sign.addEventListener('click', function() {
         if (windowTwo.textContent === '') {
             windowTwo.textContent = sign.textContent;
-            } else {
+        } else if (windowThree.textContent === '') {
+            windowTwo.textContent = sign.textContent;
+        } else {
             let answer = operate(windowTwo.textContent, windowOne.textContent, windowThree.textContent);
             windowOne.textContent = answer;
             windowTwo.textContent = sign.textContent;
             windowThree.textContent = '';
-            }
+        };
     });
 });
 */
+
 
 // still not working
 positiveNegative.addEventListener('click', () => {
@@ -182,12 +194,30 @@ percentageButton.addEventListener('click', () => {
 
 // function that returns answer when equals is clicked
 equalsButton.addEventListener('click', () => {
-    let answer = operate(windowTwo.textContent, windowOne.textContent, windowThree.textContent);
-    const roundedAnswer = Math.round(answer * 10000)/10000;
-    windowOne.textContent = roundedAnswer;
-    windowTwo.textContent = '';
-    windowThree.textContent = '';
-    mode = 'answered';
+    if (windowThree.textContent !== '') {
+        let answer = operate(windowTwo.textContent, windowOne.textContent, windowThree.textContent);
+        const roundedAnswer = Math.round(answer * 10000)/10000;
+        windowOne.textContent = roundedAnswer;
+        windowTwo.textContent = '';
+        windowThree.textContent = '';
+        mode = 'answered';
+    } else {
+        return;
+    };
+});
+
+// function that backspaces last digit entered
+backspaceButton.addEventListener('click', () => {
+    let windowArray = [];
+    if (windowTwo.textContent == '') {
+        windowArray = windowOne.textContent.split('');
+        windowArray.pop();
+        windowOne.textContent = windowArray.join('');
+    } else {
+        windowArray = windowThree.textContent.split('');
+        windowArray.pop();
+        windowThree.textContent = windowArray.join('');
+    };
 });
 
 // replace multiple sign button functions with just the one
@@ -195,7 +225,6 @@ equalsButton.addEventListener('click', () => {
 // fix event listener for percentage
 // fix event listener for positiveNegative
 // create foolproof for more than one decimal in a number
-// add backspace button
 // add keyboard support
 
 
