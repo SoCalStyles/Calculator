@@ -67,8 +67,25 @@ h1 {
 }
 
 #zero {
-    width: 152px;
-    border-radius: 20px;
+    background-color: rgb(46, 45, 45);
+    color: white;
+    border: none;
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+#backspace {
+    background-color: rgb(46, 45, 45);
+    color: white;
+    border: none;
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    font-size: 25px;
+    font-weight: 700;
 }
 
 #firstRow, #secondRow, #thirdRow, #fourthRow {
@@ -86,11 +103,7 @@ h1 {
     color: white;
 }
 
-.numberButton:hover {
-    background-color: rgb(46, 124, 214);
-}
-
-.sign:hover {
+.numberButton:hover, .sign:hover, #zero:hover, #backspace:hover {
     background-color: rgb(46, 124, 214);
 }
 

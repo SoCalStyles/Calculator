@@ -59,9 +59,11 @@ const operate = function(operator, number1, number2) {
 numberButton.forEach(button => {
     button.addEventListener('click', function() {
         if (mode == 'answered') {
+            if (windowTwo.textContent == '') {
             windowOne.textContent = '';
             mode = '';
-        }
+            };
+        };
         if (windowTwo.textContent === '') {
             if (windowOne.textContent.length < 8) {
                 windowOne.textContent += button.textContent;
