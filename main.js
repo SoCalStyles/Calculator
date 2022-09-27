@@ -153,38 +153,29 @@ operatorButton.forEach(sign => {
 });
 */
 
-// still not working
+// changes number from positive to negative and vice versa
 positiveNegative.addEventListener('click', () => {
     if (windowTwo.textContent === '') {
         let array = windowOne.textContent.split('');
-        let findSymbol = array.filter((character) => {
-            if (character !== '-') {
-                return true;
-            }
-        if (findSymbol === windowOne.textContent) {
+        console.log(array);
+        if (array[0] === '-') {
+            let removeNegative = array.shift();
+            console.log(removeNegative);
+            windowOne.textContent = array.join('');
+        } else if (array[0] !== '-') {
             windowOne.textContent = `-${windowOne.textContent}`;
-        } else {
-            let isNegative = windowOne.textContent.split('');
-            let toPositive = isNegative.shift();
-            let positive = toPositive.join('');
-            windowOne.textContent = positive;
-        }  
-        });
+        }
     } else if (windowThree.textContent !== '') {
         let array = windowThree.textContent.split('');
-        let findSymbol = array.filter((character) => {
-            if (character !== '-') {
-                return true;
-            }
-        if (findSymbol === windowThree.textContent) {
+        console.log(array);
+        if (array[0] === '-') {
+            let removeNegative = array.shift();
+            console.log(removeNegative);
+            windowThree.textContent = array.join('');
+        } else if (array[0] !== '-') {
             windowThree.textContent = `-${windowThree.textContent}`;
-        } else {
-            let isNegative = windowThree.textContent.split('');
-            let toPositive = isNegative.shift().join('');
-            windowThree.textContent = toPositive;
-        }  
-        });
-    };
+        }
+    }
 });
 
 /*
