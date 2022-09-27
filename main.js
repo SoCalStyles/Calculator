@@ -153,44 +153,51 @@ operatorButton.forEach(sign => {
 });
 */
 
-
 // still not working
 positiveNegative.addEventListener('click', () => {
     if (windowTwo.textContent === '') {
-        let numArrayOne = windowOne.textContent.split('');
-        let finderOne = numArrayOne.find(char => {
-            if (char == '-') {
-                windowOne.textContent = numArrayOne.shift().toString();
-            } else {
-                windowOne.textContent = `-${windowOne.textContent}`;
+        let array = windowOne.textContent.split('');
+        let findSymbol = array.filter((character) => {
+            if (character !== '-') {
+                return true;
             }
+        if (findSymbol === windowOne.textContent) {
+            windowOne.textContent = `-${windowOne.textContent}`;
+        } else {
+            let isNegative = windowOne.textContent.split('');
+            let toPositive = isNegative.shift();
+            let positive = toPositive.join('');
+            windowOne.textContent = positive;
+        }  
         });
-        windowOne.textContent = finderOne.toString('');
-    } else {
-        let numArrayThree = windowThree.textContent.split('');
-        let finderThree = numArrayThree.find(char => {
-            if (char == '-') {
-                return false;
-            } else {
-                windowOne.textContent = `-${windowOne.textContent}`;
+    } else if (windowThree.textContent !== '') {
+        let array = windowThree.textContent.split('');
+        let findSymbol = array.filter((character) => {
+            if (character !== '-') {
+                return true;
             }
-            windowOne.textContent = finderThree.toString('');
+        if (findSymbol === windowThree.textContent) {
+            windowThree.textContent = `-${windowThree.textContent}`;
+        } else {
+            let isNegative = windowThree.textContent.split('');
+            let toPositive = isNegative.shift().join('');
+            windowThree.textContent = toPositive;
+        }  
         });
-    }
+    };
 });
 
 /*
 should take textContent and turn to array, then add +/- to front of array
 */
 
-/*
 percentageButton.addEventListener('click', () => {
-    windowOne.textContent += '%';
-    windowOnePercentage = windowOne.textContent/100;
-    windowThreePercentage = windowThree.textContent/100
-    
-})
-*/
+    if (windowTwo.textContent === '') {
+        windowOne.textContent = (windowOne.textContent / 100);
+    } else if (windowThree.textContent !== '') {
+        windowThree.textContent = (windowThree.textContent / 100);
+    }
+});
 
 // function that returns answer when equals is clicked
 equalsButton.addEventListener('click', () => {
@@ -206,7 +213,7 @@ equalsButton.addEventListener('click', () => {
     };
 });
 
-// function that backspaces last digit entered
+// function that deletes last digit entered
 backspaceButton.addEventListener('click', () => {
     let windowArray = [];
     if (windowTwo.textContent == '') {
@@ -221,10 +228,9 @@ backspaceButton.addEventListener('click', () => {
 });
 
 // replace multiple sign button functions with just the one
-// need to fix using equals with no sign or second number
-// fix event listener for percentage
 // fix event listener for positiveNegative
 // create foolproof for more than one decimal in a number
+// fix numbers that are really long not fitting in display window
 // add keyboard support
 
 
