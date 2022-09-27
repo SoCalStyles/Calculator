@@ -79,22 +79,22 @@ numberButton.forEach(button => {
 
 // prevent more than one decimal per number
 decimalButton.addEventListener('click', () => {
+    if (mode === 'answered') {
+        windowOne.textContent = '';
+        mode = '';
+    }
     if (windowTwo.textContent === '') {
         let array = windowOne.textContent.split('');
-        if (array.includes('.')) {
-            return;
-        } else {
+        if (!array.includes('.')) {
             windowOne.textContent += '.';
         }
-    } else if (windowThree.textContent !== '') {
+    } else if (windowTwo.textContent !== '') {
         let array = windowThree.textContent.split('');
-        if (array.includes('.')) {
-            return;
-        } else {
+        if (!array.includes('.')) {
             windowThree.textContent += '.';
         }
     }
-})
+});
 
 // function that clears display when clear button is clicked
 clearButton.addEventListener('click', () => {
@@ -236,7 +236,6 @@ backspaceButton.addEventListener('click', () => {
 });
 
 // replace multiple sign button functions with just the one
-// create foolproof for more than one decimal in a number
 // fix numbers that are really long not fitting in display window
 // add keyboard support
 
