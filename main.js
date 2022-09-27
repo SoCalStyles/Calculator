@@ -11,6 +11,7 @@ const addButton = document.querySelector('#addButton');
 const subtractButton = document.querySelector('#subtractButton');
 const multiplyButton = document.querySelector('#multiplyButton');
 const divideButton = document.querySelector('#divideButton');
+const decimalButton = document.querySelector('#decimal');
 
 //const operatorButton = document.querySelectorAll('.operator');
 
@@ -75,6 +76,25 @@ numberButton.forEach(button => {
         };
     });
 });
+
+// prevent more than one decimal per number
+decimalButton.addEventListener('click', () => {
+    if (windowTwo.textContent === '') {
+        let array = windowOne.textContent.split('');
+        if (array.includes('.')) {
+            return;
+        } else {
+            windowOne.textContent += '.';
+        }
+    } else if (windowThree.textContent !== '') {
+        let array = windowThree.textContent.split('');
+        if (array.includes('.')) {
+            return;
+        } else {
+            windowThree.textContent += '.';
+        }
+    }
+})
 
 // function that clears display when clear button is clicked
 clearButton.addEventListener('click', () => {
@@ -178,10 +198,7 @@ positiveNegative.addEventListener('click', () => {
     }
 });
 
-/*
-should take textContent and turn to array, then add +/- to front of array
-*/
-
+// divides number by 100
 percentageButton.addEventListener('click', () => {
     if (windowTwo.textContent === '') {
         windowOne.textContent = (windowOne.textContent / 100);
@@ -219,7 +236,6 @@ backspaceButton.addEventListener('click', () => {
 });
 
 // replace multiple sign button functions with just the one
-// fix event listener for positiveNegative
 // create foolproof for more than one decimal in a number
 // fix numbers that are really long not fitting in display window
 // add keyboard support

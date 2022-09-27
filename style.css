@@ -44,7 +44,7 @@ h1 {
     gap: 8px;
 }
 
-.numberButton {
+.numberButton, #decimal {
     background-color: rgb(46, 45, 45);
     color: white;
     border: none;
@@ -103,7 +103,7 @@ h1 {
     color: white;
 }
 
-.numberButton:hover, .sign:hover, #zero:hover, #backspace:hover {
+.numberButton:hover, .sign:hover, #zero:hover, #backspace:hover, #decimal:hover {
     background-color: rgb(46, 124, 214);
 }
 
