@@ -58,6 +58,10 @@ const operate = function(operator, number1, number2) {
 // function that populates display when you click the number buttons
 numberButton.forEach(button => {
     button.addEventListener('click', function() {
+        if (mode == 'answered') {
+            windowOne.textContent = '';
+            mode = '';
+        }
         if (windowTwo.textContent === '') {
             if (windowOne.textContent.length < 8) {
                 windowOne.textContent += button.textContent;
@@ -185,7 +189,6 @@ equalsButton.addEventListener('click', () => {
 });
 
 // replace multiple sign button functions with just the one
-// still need to fix when inputting new numbers after an answer
 // need to fix using equals with no sign or second number
 // fix event listener for percentage
 // fix event listener for positiveNegative
