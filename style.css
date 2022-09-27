@@ -1,5 +1,7 @@
 body {
-    background-color: rgb(216, 216, 216);
+    background-color: rgb(127, 93, 252);
+    background-image: url(./img/spiderweb.png);
+    background-size: cover;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -15,22 +17,23 @@ h1 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: orange;
+    background-color: rgb(65, 255, 75);
     border: black solid 5px;
-    border-radius: 10px;
-    width: 350px;
+    border-radius: 30px;
+    width: 340px;
     height: 525px;
-    gap: 20px;
+    gap: 15px;
 }
 
 #displayWindow {
     font-size: 30px;
+    font-weight: 700;
     display: flex;
     gap: 8px;
     align-items: center;
     justify-content: left;
-    background-color: rgb(224, 224, 224);
-    border: black 3px solid;
+    background-color: rgb(199, 199, 199);
+    border: black 2px solid;
     height: 80px;
     width: 290px;
     border-radius: 5px;
@@ -99,7 +102,7 @@ h1 {
 }
 
 #addButton, #subtractButton, #multiplyButton, #divideButton, #equalsButton {
-    background-color: rgb(33, 91, 156);
+    background-color: rgb(255, 116, 52);
     color: white;
 }
 

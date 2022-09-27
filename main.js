@@ -249,6 +249,7 @@ backspaceButton.addEventListener('click', () => {
 
 // replace multiple operator button functions with just the one
 // add keyboard support
+// play random sound on equals button
 
 
 
