@@ -17,8 +17,8 @@ h1 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgb(65, 255, 75);
-    border: black solid 5px;
+    background-color: rgb(52, 255, 62);
+    border: rgb(46, 177, 53) solid 5px;
     border-radius: 30px;
     width: 340px;
     height: 525px;
